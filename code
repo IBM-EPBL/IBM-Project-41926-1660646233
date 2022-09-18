@@ -1,0 +1,25 @@
+// C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+}
+
+void loop()
+{
+ double a = analogRead(A0);
+ double t = (((a/1024)*5)-0.5)*100;
+ Serial.print("temperature value:");
+ Serial.println(t);
+ if(t>100)
+   digitalWrite(13,1);
+  else
+    digitalWrite(13,0);
+ delay(1000);
+ int b = digitalRead(4);
+  Serial.println(b);
+ if(b)
+   Serial.println("Motion detected!");
+  delay(1000);
+}
